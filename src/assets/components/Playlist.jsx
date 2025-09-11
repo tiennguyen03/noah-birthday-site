@@ -3,7 +3,7 @@ function Playlist() {
     <>
       <div className="pl-container">
 
-        <h1>Background Playlist</h1>
+        <h1>Background Playlist (Collaborative)</h1>
         <iframe
           className="party-playlist"
           src="https://open.spotify.com/embed/playlist/6SkdwwFZpY8g8GWcAGrAmt?utm_source=generator"
@@ -14,7 +14,7 @@ function Playlist() {
         ></iframe>
 
 
-        <h1>Karaoke Playlist</h1>
+        <h1> Karaoke Playlist (Collaborative)</h1>
         <iframe
           className="party-playlist"
           src="https://open.spotify.com/embed/playlist/4aCDNIqf0XzYmhzT8CUGJa?utm_source=generator"
