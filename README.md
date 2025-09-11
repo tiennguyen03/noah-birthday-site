@@ -5,5 +5,5 @@ _A digital birthday card site built with React, complete with music, countdown, 
 ---
 
 ## 💌 Personal Message
-happy birthday bro. friends since 6th grade. you've grown so much/
+happy birthday bro. friends since 6th grade. you've grown so much.
 
