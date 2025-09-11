@@ -22,7 +22,7 @@ function NavigationBar() {
       <div className="nav-links">
         <Link to="/">Home</Link>
         <Link to="/gallery">Gallery</Link>
-         <Link to="/playlist">Playlist</Link>
+        <Link to="/playlist">Playlist</Link>
         <Link to="/gift" className="claim-btn">CLAIM</Link>
       </div>
     </nav>
