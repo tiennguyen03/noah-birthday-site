@@ -328,6 +328,22 @@ h1 {
   justify-content: center;
 }
 
+.pl-container {
+  padding-top: 80px;
+  display: flex;
+  flex-direction: column;  /* stack vertically */
+  justify-content: center;
+  align-items: center;     /* center horizontally */
+  gap: 30px;               /* spacing between playlists */
+}
+
+.party-playlist {
+  width: 100%;              /* take up most of the page width */
+  max-width: 850px;        /* don’t get too wide on big screens */
+  border-radius: 12px;
+}
+
+
 
 
 
