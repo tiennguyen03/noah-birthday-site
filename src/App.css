@@ -9,11 +9,15 @@
   margin: 0;
   margin-bottom: 10px;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+  z-index: 1;
 }
 
 .countdown {
+  display: flex;
+  flex-direction: column;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-
+  align-items: center;
+  margin: 0px;
 }
 
 .music-btn {
@@ -33,7 +37,7 @@
 }
 
 .music-btn:hover {
-  background-color: #7e22ce; /* darker purple on hover */
+  background-color: #15ff00; /* darker purple on hover */
 }
 
 
@@ -60,3 +64,85 @@
 .click-message.hidden {
   opacity: 0;
 }
+
+.noahImg {
+  position: fixed;
+  z-index: 10;
+  bottom: 0vw;
+  left: 0vw;
+  width: clamp(256px, 20vw, 1000px);
+  filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6));
+}
+
+.cd-label{
+  font-size: small;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0%;
+}
+
+.navbar {
+  position: fixed;        /* always visible at top */
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  gap: 40px;              /* spacing between links */
+  padding: 15px 20px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;          /* keeps it above everything */
+}
+
+.navbar a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-family: "noah-font";
+  font-size: 18px;
+  line-height: 1;      /* ✅ consistent height */
+}
+
+.navbar a:hover {
+  color: #979797;         /* hover color */
+  transform: scale(1.1);  /* slight zoom effect */
+}
+
+.claim-btn {
+  display: flex;       /* ✅ text stays vertically centered */
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 20px;   /* slightly smaller padding so height matches */
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  background: linear-gradient(
+    270deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #48ff00,
+    #00ffd5,
+    #002bff,
+    #7a00ff,
+    #ff00ab,
+    #ff0000
+  );
+  background-size: 600% 600%;
+  animation: gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.claim-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+
