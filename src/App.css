@@ -258,6 +258,73 @@ h1 {
   background: #444;
 }
 
+.rsvp-btn {
+  padding: 10px 20px;
+  margin: 0px 0;
+  border: none;
+  border-radius: 8px;
+  font-family: "noah-font";
+  background: #000;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rsvp-btn:hover {
+  background: #444;
+}
+
+.reservation ul {
+  list-style: none;       /* removes the bullet points */
+  padding: 0;
+  margin-top: 10px;
+  text-align: center;     /* centers the text */
+}
+
+.reservation li {
+  font-family: "noah-font";
+  font-size: 24px;
+  margin: 4px 0;
+}
+
+.reservation input {
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-family: "noah-font";
+  font-size: 16px;
+  width: 300px; /* adjust as you like */
+  text-align: center;
+}
+
+.im-there-btn {
+  display: block;
+  margin: 0px;   /* centers horizontally */
+  font-size: 20px; 
+  padding: 25px 50px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #000000, #5a5a5a); /* gradient style */
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
+  color: white;
+  font-family: "noah-font";
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.im-there-btn:hover {
+  transform: scale(1.1); /* makes it pop on hover */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.attendees {
+  display: flex;
+  justify-content: center;
+}
+
 
 
 
