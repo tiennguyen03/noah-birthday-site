@@ -1,10 +1,62 @@
-.title {
-  font-size: 64px;
+@font-face {
+  font-family: "noah-font";
+  src: url("./assets/fonts/Neuropol.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
 }
+
+.main-text {
+  margin: 0;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.countdown {
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+
+}
+
+.music-btn {
+  position: fixed;      /* sticks to the viewport, not inside divs */
+  bottom: 20px;         /* distance from the bottom */
+  right: 20px;          /* distance from the right */
+  padding: 10px 15px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-family: "noah-font";
+  font-size: 14px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+  transition: background 0.2s ease;
+}
+
+.music-btn:hover {
+  background-color: #7e22ce; /* darker purple on hover */
+}
+
 
 .center-text{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
+  font-size: 32px;
+  font-family: "noah-font";
+  line-height: 0.9;
+}
+
+.click-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ff0000;
+  font-family: "noah-font";
+  opacity: 1;
+  transition: opacity 0.6s ease;
+}
+
+.click-message.hidden {
+  opacity: 0;
 }
