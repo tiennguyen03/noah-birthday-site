@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import { supabase } from "../../lib/supabaseClient";
 import gallerySong from "../audio/gallerySong.mp3"; // 🔊 your gallery music
 import "../../App.css";
 
@@ -45,65 +46,110 @@ function Gallery() {
     const [posts, setPosts] = useState([]);
     const [image, setImage] = useState(null);
 
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Stops the browser from refreshing
+    // Post saving Logic
 
-        const trimmedName = name.trim();
-        const trimmedMsg = message.trim();
-        if (!trimmedName || !trimmedMsg) return; // don’t allow empty/whitespace posts
+    useEffect(() => {
+        fetchPosts();
+    }, []);
 
-        const newPost = {
-            id: Date.now(),
-            name: trimmedName,
-            message: trimmedMsg,
-            image: image ? URL.createObjectURL(image) : null, // ✅ local preview
-            createdAt: new Date().toISOString()
+    const fetchPosts = async () => {
+        const { data, error } = await supabase
+            .from("posts")
+            .select("*")
+            .order("created_at", { ascending: false }); // newest first
+
+        if (error) console.error(error);
+        else setPosts(data);
+    };
+
+
+    const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const trimmedName = name.trim();
+    const trimmedMsg = message.trim();
+    if (!trimmedName || !trimmedMsg) return;
+
+    let uploadedUrl = null;
+
+    // ✅ If image exists, upload to Supabase storage
+    if (image) {
+        const fileName = `${Date.now()}-${image.name}`;
+        const { data: fileData, error: fileError } = await supabase.storage
+        .from("gallery") // make sure you created this bucket
+        .upload(fileName, image);
+
+        if (fileError) {
+        console.error("Upload error:", fileError);
+        return; // stop if upload fails
+        } else {
+        // ✅ Fetch public URL after upload
+        const { data: publicData } = supabase.storage
+            .from("gallery")
+            .getPublicUrl(fileName);
+
+        uploadedUrl = publicData.publicUrl;
         }
+    }
 
-        setPosts((prev) => [newPost, ...prev]); 
+    // ✅ Save post in Supabase database
+    const { error } = await supabase.from("posts").insert([
+        { name: trimmedName, message: trimmedMsg, image_url: uploadedUrl },
+    ]);
+
+    if (error) {
+        console.error("Insert error:", error);
+    } else {
         setName("");
         setMessage("");
         setImage(null);
+        fetchPosts(); // refresh posts after insert
+    }
     };
 
     return (
     <>
         <div className="gallery-wall">
         {/* Form is the first "card" */}
-            <div className="form-card">
-                <form onSubmit={handleSubmit} className="gallery-form">
-                <input
-                    type="text"
-                    placeholder="Your Name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                />
+        <div className="form-card">
+            <form onSubmit={handleSubmit} className="gallery-form">
+            <input
+                type="text"
+                placeholder="Your Name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+            />
 
-                <textarea
-                    placeholder="Write a birthday message..."
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    rows={3}
-                />
+            <textarea
+                placeholder="Write a birthday message..."
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                rows={3}
+            />
 
-                <input
-                    type="file"
-                    accept="image/*"
-                    onChange={(e) => setImage(e.target.files[0])}
-                />
+            <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setImage(e.target.files[0])}
+            />
 
-                <button type="submit">Post</button>
-                </form>
-            </div>
+            <button type="submit">Post</button>
+            </form>
+        </div>
 
-            {/* Each post is also a card */}
+        {/* Posts section */}
+        <div className="posts">
             {posts.map((p) => (
-                <div key={p.id} className="post">
-                {p.image && <img src={p.image} alt="upload" className="post-img" />}
+            <div key={p.id} className="post">
+                {p.image_url && (
+                <img src={p.image_url} alt="upload" className="post-img" />
+                )}
                 <h3>{p.name}</h3>
                 <p>{p.message}</p>
-                </div>
+                <small>{new Date(p.created_at).toLocaleString()}</small>
+            </div>
             ))}
+        </div>
         </div>
 
         {/* Audio + music controls */}
@@ -113,6 +159,7 @@ function Gallery() {
         </button>
     </>
     );
+
 
 }
 

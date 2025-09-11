@@ -53,7 +53,7 @@ const [guestName, setGuestName] = useState("");
     const handleFirstClick = () => {
       if (audioRef.current) {
         audioRef.current.muted = false;
-        audioRef.current.volume = 0.2;
+        audioRef.current.volume = 0.15;
         audioRef.current.play();
         setIsPlaying(true);
         setShowClickMessage(false);
@@ -83,7 +83,7 @@ const [guestName, setGuestName] = useState("");
     const interval = setInterval(() => {
       const now = new Date();
       const currentYear = now.getFullYear();
-      let birthday = new Date(`${currentYear}-09-12T00:00:00`);
+      let birthday = new Date(`${currentYear}-09-15T19:00:00-04:00`);
 
       if (now > birthday) {
         birthday = new Date(`${currentYear + 1}-09-12T00:00:00`);
@@ -92,8 +92,8 @@ const [guestName, setGuestName] = useState("");
         setCountdownLabel("Countdown until your birthday 🎂");
       }
 
-      if (now.getMonth() === 8 && now.getDate() === 12) {
-        setTimeLeft({ message: "🎉 THIS IS YOUR BIG DAY 🎉" });
+      if (now.getMonth() === 8 && now.getDate() === 15) {
+        setTimeLeft({ message: "TODAY IS YOUR BIRTHDAY 🎉" });
         setCountdownLabel("");
         return;
       }

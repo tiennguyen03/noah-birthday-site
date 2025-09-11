@@ -180,7 +180,6 @@ h1 {
 /* Shared card style */
 .post,.form-card {
   width: 360px;         /* consistent width */
-  height: 420px;        /* 4:3-ish ratio */
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
@@ -191,6 +190,7 @@ h1 {
   justify-content: flex-start;
   font-family: "noah-font";
   gap: 10px;
+  overflow: hidden;
 }
 
 /* Post card content */
@@ -218,6 +218,9 @@ h1 {
   color: #000000;
   background: white;
   border-radius: 5px;
+  padding: 0px;
+  word-wrap: break-word;
+  font-family: Arial, Verdana, sans-serif; /* ✅ clean, readable font stack */
 }
 
 .post-msg{
@@ -290,13 +293,13 @@ h1 {
 }
 
 .reservation input {
-  padding: 10px;
+  padding: 20px;
   margin-bottom: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
   font-family: "noah-font";
   font-size: 16px;
-  width: 300px; /* adjust as you like */
+  width: 360px; /* adjust as you like */
   text-align: center;
 }
 
@@ -304,7 +307,7 @@ h1 {
   display: block;
   margin: 0px;   /* centers horizontally */
   font-size: 20px; 
-  padding: 25px 50px;
+  padding: 25px 105px;
   border: none;
   border-radius: 8px;
   background: linear-gradient(90deg, #000000, #5a5a5a); /* gradient style */
