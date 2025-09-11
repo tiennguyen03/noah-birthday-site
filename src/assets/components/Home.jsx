@@ -15,7 +15,7 @@ function Home() {
     const handleFirstClick = () => {
       if (audioRef.current) {
         audioRef.current.muted = false;
-        audioRef.current.volume = 0.7;
+        audioRef.current.volume = 0.3;
         audioRef.current.play();
         setIsPlaying(true);
         setShowClickMessage(false);
@@ -79,7 +79,7 @@ function Home() {
         <h1 className="main-text">Noah's 21st Birthday</h1>
 
         <div className="countdown">
-          {countdownLabel && <h3 className="cd-label">{countdownLabel}</h3>}
+
           {timeLeft.message ? (
             <h2>{timeLeft.message}</h2>
           ) : (
@@ -88,6 +88,8 @@ function Home() {
               {timeLeft.seconds}s
             </h2>
           )}
+
+          {countdownLabel && <h3 className="cd-label">{countdownLabel}</h3>}
         </div>
 
         <p className={`click-message ${!showClickMessage ? "hidden" : ""}`}>

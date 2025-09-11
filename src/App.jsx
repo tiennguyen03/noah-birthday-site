@@ -11,7 +11,7 @@ function App() {
       <NavigationBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/wall" element={<Gallery />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="/gift" element={<Gift />} />
         <Route path="/playlist" element={<Playlist />} />
       </Routes>

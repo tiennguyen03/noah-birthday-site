@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+h1 {
+  font-family: "noah-font";
+}
+
 .main-text {
   margin: 0;
   margin-bottom: 10px;
@@ -17,8 +21,14 @@
   flex-direction: column;
   text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
   align-items: center;
-  margin: 0px;
+  margin-bottom: 0px;
 }
+
+.countdown h2,
+.countdown h3 {
+  margin: 20px;   /* remove the big default margins */
+}
+
 
 .music-btn {
   position: fixed;      /* sticks to the viewport, not inside divs */
@@ -54,7 +64,7 @@
 
 .click-message {
   margin-top: 10px;
-  font-size: 14px;
+  font-size: 24px;
   color: #ff0000;
   font-family: "noah-font";
   opacity: 1;
@@ -75,7 +85,7 @@
 }
 
 .cd-label{
-  font-size: small;
+  font-size: 24px;
   justify-content: center;
   align-items: center;
   margin-top: 0%;
@@ -87,12 +97,24 @@
   left: 0;
   right: 0;
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
   align-items: center;
-  gap: 40px;              /* spacing between links */
   padding: 15px 20px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
   z-index: 1000;          /* keeps it above everything */
+}
+
+.page-title {
+  font-family: "noah-font";
+  font-size: 22px;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+}
+
+
+.nav-links {
+  display: flex;
+  gap: 40px;
 }
 
 .navbar a {
@@ -101,6 +123,8 @@
   font-family: "noah-font";
   font-size: 18px;
   line-height: 1;      /* ✅ consistent height */
+  display: flex;
+  align-items: center;
 }
 
 .navbar a:hover {
@@ -144,5 +168,104 @@
   transform: scale(1.1);
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
+
+.gallery-wall {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  padding-top: 80px;
+  overflow-x: auto;  /* allows scrolling if many posts */
+}
+/* Shared card style */
+.post,.form-card {
+  width: 360px;         /* consistent width */
+  height: 420px;        /* 4:3-ish ratio */
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+  flex-shrink: 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family: "noah-font";
+  gap: 10px;
+}
+
+/* Post card content */
+.post-img {
+  width: 100%;            /* make it fill card width */
+  aspect-ratio: 1 / 1;    /* ✅ force it to always be a square */
+  object-fit: cover;      /* ✅ crop edges so it fills square nicely */
+  border-radius: 6px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+}
+
+
+.post:hover{
+  transform: scale(1.01);
+}
+
+.post h3 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+}
+
+.post p {
+  margin: 0;
+  font-size: 14px;
+  color: #000000;
+  background: white;
+  border-radius: 5px;
+}
+
+.post-msg{
+  background: white;
+}
+
+/* Form inside the first card */
+.gallery-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;             /* stretch to fill card */
+}
+
+.gallery-form input,
+.gallery-form textarea,
+.gallery-form button {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: "noah-font";
+  font-size: 18px;
+}
+
+.gallery-form textarea {
+  resize: none;
+  flex: 1;             /* grow to take space */
+}
+
+.gallery-form button {
+  background: black;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gallery-form button:hover {
+  background: #444;
+}
+
+
+
+
+
+
+
+
+
+
 
 
