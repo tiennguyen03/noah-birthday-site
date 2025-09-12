@@ -26,14 +26,13 @@ h1 {
 
 .countdown h2,
 .countdown h3 {
-  margin: 20px;   /* remove the big default margins */
+  margin: 20px;
 }
 
-
 .music-btn {
-  position: fixed;      /* sticks to the viewport, not inside divs */
-  bottom: 20px;         /* distance from the bottom */
-  right: 20px;          /* distance from the right */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   padding: 10px 15px;
   background-color: #ffffff;
   color: rgb(0, 0, 0);
@@ -47,11 +46,10 @@ h1 {
 }
 
 .music-btn:hover {
-  background-color: #15ff00; /* darker purple on hover */
+  background-color: #15ff00;
 }
 
-
-.center-text{
+.center-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -84,7 +82,7 @@ h1 {
   filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.6));
 }
 
-.cd-label{
+.cd-label {
   font-size: 24px;
   justify-content: center;
   align-items: center;
@@ -92,7 +90,7 @@ h1 {
 }
 
 .navbar {
-  position: fixed;        /* always visible at top */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
@@ -101,7 +99,7 @@ h1 {
   align-items: center;
   padding: 15px 20px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-  z-index: 1000;          /* keeps it above everything */
+  z-index: 1000;
 }
 
 .page-title {
@@ -110,7 +108,6 @@ h1 {
   font-weight: bold;
   color: rgb(0, 0, 0);
 }
-
 
 .nav-links {
   display: flex;
@@ -122,22 +119,21 @@ h1 {
   text-decoration: none;
   font-family: "noah-font";
   font-size: 18px;
-  line-height: 1;      /* ✅ consistent height */
+  line-height: 1;
   display: flex;
   align-items: center;
 }
 
 .navbar a:hover {
-  color: #979797;         /* hover color */
-  transform: scale(1.1);  /* slight zoom effect */
+  color: #979797;
+  transform: scale(1.1);
 }
 
 .claim-btn {
-  display: flex;       /* ✅ text stays vertically centered */
+  display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 5px 20px;   /* slightly smaller padding so height matches */
+  padding: 5px 20px;
   border-radius: 8px;
   font-weight: bold;
   color: white;
@@ -175,35 +171,44 @@ h1 {
   gap: 20px;
   padding: 20px;
   padding-top: 80px;
-  overflow-x: auto;  /* allows scrolling if many posts */
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+.posts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
 /* Shared card style */
-.post,.form-card {
-  width: 360px;         /* consistent width */
+.post,
+.form-card {
+  width: 320px;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-  flex-shrink: 0;
   padding: 15px;
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
-  font-family: "noah-font";
+  flex-direction: column;
   gap: 10px;
-  overflow: hidden;
+  font-family: "noah-font";
+  min-height: 380px
 }
 
-/* Post card content */
 .post-img {
-  width: 100%;            /* make it fill card width */
-  aspect-ratio: 1 / 1;    /* ✅ force it to always be a square */
-  object-fit: cover;      /* ✅ crop edges so it fills square nicely */
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 6px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.4);
 }
 
-
-.post:hover{
+.post:hover {
   transform: scale(1.01);
 }
 
@@ -218,21 +223,15 @@ h1 {
   color: #000000;
   background: white;
   border-radius: 5px;
-  padding: 0px;
+  padding: 4px;
   word-wrap: break-word;
-  font-family: Arial, Verdana, sans-serif; /* ✅ clean, readable font stack */
+  font-family: Arial, Verdana, sans-serif;
 }
 
-.post-msg{
-  background: white;
-}
-
-/* Form inside the first card */
 .gallery-form {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  flex: 1;             /* stretch to fill card */
 }
 
 .gallery-form input,
@@ -247,7 +246,6 @@ h1 {
 
 .gallery-form textarea {
   resize: none;
-  flex: 1;             /* grow to take space */
 }
 
 .gallery-form button {
@@ -280,10 +278,10 @@ h1 {
 }
 
 .reservation ul {
-  list-style: none;       /* removes the bullet points */
+  list-style: none;
   padding: 0;
   margin-top: 10px;
-  text-align: center;     /* centers the text */
+  text-align: center;
 }
 
 .reservation li {
@@ -299,18 +297,18 @@ h1 {
   border: 1px solid #ccc;
   font-family: "noah-font";
   font-size: 16px;
-  width: 360px; /* adjust as you like */
+  width: 360px;
   text-align: center;
 }
 
 .im-there-btn {
   display: block;
-  margin: 0px;   /* centers horizontally */
-  font-size: 20px; 
+  margin: 0px;
+  font-size: 20px;
   padding: 25px 105px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(90deg, #000000, #5a5a5a); /* gradient style */
+  background: linear-gradient(90deg, #000000, #5a5a5a);
   box-shadow: 4px 4px 10px rgba(0,0,0,0.4);
   color: white;
   font-family: "noah-font";
@@ -319,7 +317,7 @@ h1 {
 }
 
 .im-there-btn:hover {
-  transform: scale(1.1); /* makes it pop on hover */
+  transform: scale(1.1);
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -331,15 +329,15 @@ h1 {
 .pl-container {
   padding-top: 80px;
   display: flex;
-  flex-direction: column;  /* stack vertically */
+  flex-direction: column;
   justify-content: center;
-  align-items: center;     /* center horizontally */
-  gap: 30px;               /* spacing between playlists */
+  align-items: center;
+  gap: 30px;
 }
 
 .party-playlist {
-  width: 100%;              /* take up most of the page width */
-  max-width: 850px;        /* don’t get too wide on big screens */
+  width: 100%;
+  max-width: 850px;
   border-radius: 12px;
 }
 
@@ -348,7 +346,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; /* full screen */
+  height: 100vh;
   text-align: center;
   padding: 20px;
 }
@@ -419,19 +417,3 @@ h1 {
   -webkit-text-fill-color: transparent;
   font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

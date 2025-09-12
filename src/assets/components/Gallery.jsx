@@ -110,35 +110,36 @@ function Gallery() {
     return (
     <>
         <div className="gallery-wall">
-        {/* Form is the first "card" */}
-        <div className="form-card">
+        {/* Posts grid (form card comes first) */}
+        <div className="posts">
+            {/* Form card */}
+            <div className="form-card">
             <form onSubmit={handleSubmit} className="gallery-form">
-            <input
+                <input
                 type="text"
                 placeholder="Your Name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-            />
+                />
 
-            <textarea
+                <textarea
                 placeholder="Write a birthday message..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 rows={3}
-            />
+                />
 
-            <input
+                <input
                 type="file"
                 accept="image/*"
                 onChange={(e) => setImage(e.target.files[0])}
-            />
+                />
 
-            <button type="submit">Post</button>
+                <button type="submit">Post</button>
             </form>
-        </div>
+            </div>
 
-        {/* Posts section */}
-        <div className="posts">
+            {/* Render posts after the form card */}
             {posts.map((p) => (
             <div key={p.id} className="post">
                 {p.image_url && (
@@ -159,7 +160,6 @@ function Gallery() {
         </button>
     </>
     );
-
 
 }
 
