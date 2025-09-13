@@ -70,7 +70,7 @@ function Gift() {
 
         {unlocked && (
           <div className="gift-reveal">
-            <h2>AQGV-XP4SJ2-MMEAV</h2>
+            <h2>AMAZON: AQGV-XP4SJ2-MMEAV</h2>
           </div>
         )}
       </div>
